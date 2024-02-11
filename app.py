@@ -120,7 +120,7 @@ if __name__ == '__main__':
     if async_mode == 'gevent':
         from gevent import pywsgi
         from geventwebsocket.handler import WebSocketHandler
-        server = pywsgi.WSGIServer(('', 5000), app, handler_class=WebSocketHandler)
+        server = pywsgi.WSGIServer(('127.0.0.1', 5000), app, handler_class=WebSocketHandler)
         server.serve_forever()
     else:
         socketio.run(app, debug=True)
