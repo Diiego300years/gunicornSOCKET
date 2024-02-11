@@ -1,0 +1,21 @@
+name: "gunicorn_env"
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - bidict
+  - cachelib
+  - click
+  - Flask
+  - Flask-Login
+  - Flask-Session
+  - Flask-SocketIO
+  - importlib-metadata
+  - itsdangerous
+  - Jinja2
+  - MarkupSafe
+  - python-engineio
+  - python-socketio
+  - six
+  - Werkzeug
+  - zipp
