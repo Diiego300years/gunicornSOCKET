@@ -115,12 +115,12 @@ def connect():
 def test_disconnect():
     print('Client disconnected', request.sid)
 
-
-if __name__ == '__main__':
-    if async_mode == 'gevent':
-        from gevent import pywsgi
-        from geventwebsocket.handler import WebSocketHandler
-        server = pywsgi.WSGIServer(('127.0.0.1', 5000), app, handler_class=WebSocketHandler)
-        server.serve_forever()
-    else:
-        socketio.run(app, debug=True)
+#
+# if __name__ == '__main__':
+#     if async_mode == 'gevent':
+#         from gevent import pywsgi
+#         from geventwebsocket.handler import WebSocketHandler
+#         server = pywsgi.WSGIServer(('127.0.0.1', 5000), app, handler_class=WebSocketHandler)
+#         server.serve_forever()
+#     else:
+#         socketio.run(app, debug=True)
