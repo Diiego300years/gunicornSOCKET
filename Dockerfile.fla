@@ -1,0 +1,21 @@
+FROM continuumio/miniconda3:main
+
+WORKDIR /app
+
+COPY environment.yaml .
+
+RUN conda install -y conda=23.11.0 && \
+    conda env update --file /app/environment.yaml --prune && \
+    conda clean -afy &&\
+    conda clean --all
+
+
+COPY . /app
+
+RUN chmod +x /app/start.sh
+
+# Conda starts here:
+SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
+
+# Using GeventWebSocketWorker for Gunicorn
+ENTRYPOINT ["/app/start.sh"]

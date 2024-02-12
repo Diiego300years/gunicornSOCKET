@@ -1,0 +1,20 @@
+# Wybór obrazu bazowego Pythona w wersji "slim"
+FROM python:3.10-slim
+
+# Ustawienie katalogu roboczego w kontenerze
+WORKDIR /app
+
+# Kopiowanie pliku requirements.txt do katalogu roboczego
+COPY requirements.txt .
+
+# Instalacja pakietów z pliku requirements.txt
+RUN pip install --verbose --no-cache-dir -r requirements.txt
+
+# Kopiowanie pozostałych plików aplikacji do katalogu roboczego
+COPY . /app
+
+# Nadanie uprawnień wykonania dla skryptu startowego
+RUN chmod +x /app/start.sh
+
+# Ustawienie punktu wejścia do kontenera
+ENTRYPOINT ["/app/start.sh"]

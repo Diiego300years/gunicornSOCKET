@@ -2,11 +2,11 @@ from flask import Flask
 from flask_socketio import SocketIO
 
 socketio = SocketIO()
+app = Flask(__name__)
 
 
 def create_app(debug=False):
     """Create an application."""
-    app = Flask(__name__)
     app.debug = debug
     app.config['SECRET_KEY'] = 'gjr39dkjn344_!67#'
 
@@ -16,3 +16,5 @@ def create_app(debug=False):
     socketio.init_app(app)
     return app
 
+
+application = create_app()
